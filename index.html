@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone View - HelioGuard Prototype</title>
+    <!-- Modern & Bubbly Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Icons (Phosphor Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="top-nav-banner hero-section">
+        <h1 class="bounce-text">Phone View (Software Prototype)</h1>
+        <a href="hardware.html" class="btn-mega-link bouncy-anim">
+            <i class="ph-fill ph-cpu"></i> Go To Hardware Build Guide!
+        </a>
+    </div>
+
+    <main class="prototype-container">
+        
+        <!-- ======================= -->
+        <!--   CHILD WATCH INTERFACE -->
+        <!-- ======================= -->
+        <div class="device-frame watch-frame">
+            <div class="watch-strap top"></div>
+            <div class="watch-body">
+                <div class="screen kid-font" id="watch-screen">
+                    <div class="watch-header">
+                        <span class="time" id="watch-time">10:42 AM</span>
+                        <div class="status-icons">
+                            <i class="ph-fill ph-battery-full"></i>
+                            <i class="ph-fill ph-wifi-high"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Main watch face -->
+                    <div class="watch-face view-active" id="view-home">
+                        <div class="hero-character bouncy-anim" id="sun-character">
+                            <i class="ph-fill ph-sun" id="mascot-icon" style="font-size: 80px; color: #ffb703;"></i>
+                        </div>
+                        <div class="quick-stats">
+                            <div class="stat-pill temp bouncy-anim" style="animation-delay: 0.1s;"><i class="ph-bold ph-thermometer"></i> <span id="watch-temp">98.6°</span></div>
+                            <div class="stat-pill uv bouncy-anim" style="animation-delay: 0.2s;"><i class="ph-bold ph-sun-dim"></i> <span id="watch-uv">UVI 4.0</span></div>
+                        </div>
+                        <p class="status-text bouncy-anim" style="animation-delay: 0.3s;" id="watch-status-text">Playing Safely!</p>
+                        
+                        <button class="btn-sos" id="btn-watch-sos">I'm Lost <i class="ph-fill ph-warning"></i></button>
+                    </div>
+
+                    <!-- Alert / Message Overlay -->
+                    <div class="watch-alert-overlay" id="watch-alert">
+                        <div class="alert-icon bouncy-anim" id="alert-icon"><i class="ph-fill ph-warning-circle"></i></div>
+                        <h2 class="alert-title" id="alert-title">Seek Shade!</h2>
+                        <p class="alert-desc" id="alert-desc">The sun is too hot.</p>
+                        <button class="btn-acknowledge" id="btn-ok">Got it!</button>
+                    </div>
+
+                    <!-- Break / Cooldown Timer Overlay -->
+                    <div class="watch-timer-overlay" id="watch-timer">
+                        <h2>Rest Time</h2>
+                        <div class="circle-timer">
+                            <svg class="progress-ring" height="120" width="120">
+                                <circle class="progress-ring__circle" stroke-width="8" fill="transparent" r="54" cx="60" cy="60"/>
+                            </svg>
+                            <span class="countdown kid-font" id="countdown-text">10:00</span>
+                        </div>
+                        <p>Have some water.</p>
+                    </div>
+
+                    <!-- Lost Mode / Home Navigator Overlay -->
+                    <div class="watch-lost-overlay" id="watch-lost">
+                        <div class="lost-header bouncy-anim">
+                            <i class="ph-fill ph-house-line" style="font-size: 40px; color: white;"></i>
+                            <h2>Follow Arrow Home!</h2>
+                        </div>
+                        <div class="compass-arrow">
+                            <i class="ph-fill ph-navigation-arrow"></i>
+                            <span class="distance">650 ft away</span>
+                        </div>
+                        <div class="emergency-contact">
+                            <p>If found, please call Mom:</p>
+                            <h3 id="watch-parent-phone">555-0199</h3>
+                        </div>
+                        <button class="btn-acknowledge mt-2" id="btn-found">I'm Safe!</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="watch-strap bottom"></div>
+        </div>
+
+        <!-- ======================= -->
+        <!--   PARENT APP DASHBOARD  -->
+        <!-- ======================= -->
+        <div class="device-frame phone-frame">
+            <div class="notch"></div>
+            <div class="screen parent-app">
+                
+                <!-- REGISTRATION / ONBOARDING OVERLAY -->
+                <div class="onboarding-overlay" id="onboarding-view">
+                    <div class="onboarding-content">
+                        <div class="logo-area">
+                            <i class="ph-fill ph-shield-check" style="font-size:40px; color: var(--blue);"></i>
+                            <h2>HelioGuard Setup</h2>
+                            <p>Register your child's device</p>
+                        </div>
+                        <form id="registration-form" class="reg-form">
+                            <div class="avatar-upload">
+                                <div class="avatar-circle"><i class="ph ph-camera"></i></div>
+                                <span>Upload Photo</span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Child's First Name</label>
+                                <input type="text" id="reg-child-name" required placeholder="e.g. Alex" value="Alex">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Age</label>
+                                    <input type="number" id="reg-child-age" required placeholder="6" value="6">
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select id="reg-child-gender">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Primary Guardian Name</label>
+                                <input type="text" id="reg-guardian-name" required placeholder="Mom / Dad" value="Mom">
+                            </div>
+                            <div class="form-group">
+                                <label>Guardian Phone Number</label>
+                                <input type="tel" id="reg-guardian-phone" required placeholder="555-0199" value="555-0199">
+                            </div>
+                            <button type="submit" class="btn-primary-large">Register & Connect <i class="ph ph-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- MAIN DASHBOARD CONTENT -->
+                <div id="main-dashboard" style="display:none; height:100%; flex-direction:column;">
+                    <header class="app-header">
+                        <div class="profile-pic" style="background-image: url('https://images.unsplash.com/photo-1595454223600-91fbabe7aba0?w=100&h=100&fit=crop'); background-size: cover;">
+                        </div>
+                        <div class="header-titles">
+                            <h1>HelioGuard</h1>
+                            <p>Monitoring: <strong id="dash-child-name">Alex</strong> (<span id="dash-child-age">6</span> yrs)</p>
+                        </div>
+                        <i class="ph ph-bell icon-btn" style="font-size:24px;"></i>
+                    </header>
+
+                    <div class="app-content">
+                        
+                        <!-- Vitals Section -->
+                        <section class="card vitals-card">
+                            <div class="card-header">
+                                <h3>Hardware Sensor Feed</h3>
+                                <div class="live-pulse"><div class="dot"></div> Streaming</div>
+                            </div>
+                            <div class="vitals-grid">
+                                <div class="vital-item" id="parent-temp-card">
+                                    <div class="icon-wrapper bg-orange"><i class="ph-fill ph-thermometer"></i></div>
+                                    <div class="vital-info">
+                                        <span class="label">Body Temp</span>
+                                        <strong class="value"><span id="parent-temp">98.6</span>°F</strong>
+                                    </div>
+                                </div>
+                                <div class="vital-item" id="parent-uv-card">
+                                    <div class="icon-wrapper bg-blue"><i class="ph-fill ph-sun"></i></div>
+                                    <div class="vital-info">
+                                        <span class="label">Env. UVI</span>
+                                        <strong class="value" id="parent-uv">4.0</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="status-bar">
+                                <div class="status-indicator safe" id="overall-status-led"></div>
+                                <span id="overall-status-text">Sensors Nominal / Safe</span>
+                            </div>
+                        </section>
+
+                        <!-- Media / Camera / Map Section -->
+                        <section class="media-section">
+                            <div class="tabs">
+                                <div class="tab active" data-target="camera-view">Live Camera</div>
+                                <div class="tab" data-target="map-view">Location</div>
+                            </div>
+                            <div class="media-container" id="camera-view">
+                                <video autoplay loop muted playsinline class="simulated-feed">
+                                    <source src="https://cdn.pixabay.com/video/2021/08/04/83863-584742461_tiny.mp4" type="video/mp4">
+                                </video>
+                                <div class="live-badge"><div class="red-dot"></div> Watch Cam</div>
+                            </div>
+                            <div class="media-container hidden" id="map-view">
+                                <div class="simulated-map">
+                                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=800" alt="Park Map">
+                                    <div class="radar-ping"></div>
+                                    <div class="home-marker"><i class="ph-fill ph-house"></i></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Control Hub -->
+                        <section class="card controls-card">
+                            <h3>Commands & Safety</h3>
+                            <div class="buttons-grid">
+                                <button class="btn send-msg" onclick="sendAlert('Hydrate', 'Drink some water!', 'ph-drop', 'blue')"><i class="ph-fill ph-drop"></i> Drink Water</button>
+                                <button class="btn send-msg warning" onclick="sendAlert('Too Hot!', 'Find some shade now.', 'ph-sun-dim', 'orange')"><i class="ph-fill ph-sun-horizon"></i> Seek Shade</button>
+                                <button class="btn send-msg break" onclick="triggerBreak()"><i class="ph-fill ph-timer"></i> 10-Min Break</button>
+                                <button class="btn send-msg lost" onclick="triggerLostMode()"><i class="ph-fill ph-siren"></i> Lost Mode</button>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Hidden audio element for simulating alerts if needed -->
+    <script src="app.js"></script>
+</body>
+</html>

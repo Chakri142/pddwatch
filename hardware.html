@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelioGuard Hardware Build Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="hardware.css">
+</head>
+<body>
+
+    <a href="index.html" class="back-btn"><i class="ph-bold ph-arrow-left"></i> Back to Phone View</a>
+
+    <header class="hw-header">
+        <h1>HelioGuard Hardware Hub</h1>
+        <p>The definitive CSE-to-ECE engineering blueprint.</p>
+    </header>
+
+    <!-- STAGE 1: Parts Table in INR -->
+    <section id="stage-bom" class="container">
+        <div class="card bom-card shadow-pop">
+            <h2><i class="ph-fill ph-list-dashes"></i> Complete Bill of Materials (INR)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Hardware Component</th>
+                        <th>Role in HelioGuard</th>
+                        <th>Est. Min Cost (INR)</th>
+                        <th>Est. Max Cost (INR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ESP32-CAM Module</strong></td>
+                        <td>The "Brain". Processes sensor data, runs WiFi/BT, and captures the Camera feed.</td>
+                        <td class="price">₹500</td>
+                        <td class="price">₹800</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NEO-6M GPS Module</strong></td>
+                        <td>Calculates exact globe coordinates to power the "Lost Mode" radar tracking.</td>
+                        <td class="price">₹350</td>
+                        <td class="price">₹550</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MAX30205 Body Temp Sensor</strong></td>
+                        <td>Medical-grade sensor pressed against the child's wrist to detect fever/heat.</td>
+                        <td class="price">₹400</td>
+                        <td class="price">₹800</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VEML6075 UV Sensor</strong></td>
+                        <td>Faces outward to measure UVA and UVB light indices from the sun accurately.</td>
+                        <td class="price">₹300</td>
+                        <td class="price">₹500</td>
+                    </tr>
+                    <tr>
+                        <td><strong>1.28" Round LCD Display</strong></td>
+                        <td>The bright, colorful watch face where the bouncy animations and alerts play.</td>
+                        <td class="price">₹800</td>
+                        <td class="price">₹1200</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3.7V 400mAh LiPo Battery</strong></td>
+                        <td>Powers the entire system for an expected 8-10 hours of continuous outdoor play.</td>
+                        <td class="price">₹200</td>
+                        <td class="price">₹350</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Micro-Parts (Wires, Solder)</strong></td>
+                        <td>Breadboard jumpers, 3D printed generic project box, and solder wire for connections.</td>
+                        <td class="price">₹150</td>
+                        <td class="price">₹250</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="launch-wrapper">
+                <button id="btn-start-build" class="btn-mega launch-anim" style="margin-bottom: 20px;">LAUNCH ANIMATED ASSEMBLY! <i class="ph-bold ph-rocket-launch"></i></button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- NEW STAGE: DEEP RESEARCH & MINIATURIZATION -->
+    <section id="stage-research" class="container">
+        <div class="card research-card shadow-pop mt-20" style="margin-top: 40px; background: rgba(15, 23, 42, 0.9);">
+            <h2><i class="ph-fill ph-magnifying-glass-plus"></i> Deep Research: The Miniaturization Challenge</h2>
+            <p style="color: #cbd5e1; margin-bottom: 20px;">As a CSE student jumping into ECE, you will notice that prototype boards (like the GPS and ESP32 listed above) are heavily bulky. To fit these into a child's smartwatch, you must master <strong>Miniaturization</strong>.</p>
+            
+            <div class="research-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <!-- Before/After Soldering -->
+                <div class="research-col">
+                    <h3 style="color: #ffb703; font-family: 'Space Grotesk', sans-serif;">1. The Micro-Soldering Action</h3>
+                    <p style="color: #94a3b8; font-size: 14px;">Header pins are too tall for a watch. You must desolder the black pins from your modules and use <strong>0.1mm Enamelled Magnet Wire</strong>. Here is the action shot of fusing two components directly pad-to-pad to save 12mm of height.</p>
+                    <div class="storyboard-images" style="display: flex; gap: 10px; margin-top: 15px;">
+                        <img src="esp32_cam.png" style="width: 48%; border-radius: 10px; border: 2px solid #334155;" alt="Before Soldering">
+                        <img src="solder_action.png" style="width: 48%; border-radius: 10px; border: 2px solid #10ac84;" alt="Action Soldering">
+                    </div>
+                </div>
+
+                <!-- Final Assembly Image -->
+                <div class="research-col">
+                    <h3 style="color: #0abde3; font-family: 'Space Grotesk', sans-serif;">2. The Final Assembled Sub-Stack</h3>
+                    <p style="color: #94a3b8; font-size: 14px;">This is the ultimate layout blueprint. It shows the transparent casing revealing the "Stack" methodology: LiPo Battery on the bottom, Custom merged Sensor/Brain PCB in the middle, and the LCD Screen floating on top, with the camera facing strictly UPWARD past the wrist.</p>
+                    <img src="final_watch.png" style="width: 100%; border-radius: 15px; border: 2px solid #10ac84; margin-top: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5);" alt="Final Assembled Image">
+                </div>
+            </div>
+            
+            <div class="pcb-advice" style="margin-top: 30px; padding: 20px; background: rgba(16, 172, 132, 0.1); border-left: 4px solid #10ac84; border-radius: 0 15px 15px 0;">
+                <h4 style="color: #2ecc71; margin-top: 0;">CSE to ECE Tip: Transition to Custom Bare-Die Design</h4>
+                <p style="color: #e2e8f0; font-size: 14px; margin: 0;">For mass production, you will abandon the 'Breakout Boards' entirely. You will buy the raw, naked ESP32-PICO chip ($1.50) and the raw MAX30205 sensor ($2.00) and design a single, custom printed 4-layer circular PCB. This is how Apple and Garmin fit everything inside a watch! The prototype blueprint provides the logic, but the Custom PCB provides the form factor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STAGE 2: Interactive Video Animation Sequence -->
+    <section id="stage-build" class="container hidden">
+        
+        <div class="video-assembly-container">
+            <!-- Left Side: Interactive 3D Canvas -->
+            <div class="canvas-side">
+                <div class="canvas-stage" id="assembly-canvas">
+                    <img src="esp32_cam.png" class="comp-img comp-esp active" id="layer-esp" alt="ESP32-CAM">
+                    <img src="battery.png" class="comp-img comp-battery" id="layer-batt" alt="LiPo Battery">
+                    <img src="gps_module.png" class="comp-img comp-gps" id="layer-gps" alt="GPS Module">
+                    <img src="temp_sensor.png" class="comp-img comp-temp" id="layer-temp" alt="Temp Sensor">
+                    <img src="uv_sensor.png" class="comp-img comp-uv" id="layer-uv" alt="UV Sensor">
+                    
+                    <div class="wire w-red hidden" id="wire-vcc"></div>
+                    <div class="wire w-black hidden" id="wire-gnd"></div>
+                </div>
+                
+                <div class="player-controls">
+                    <button class="btn-player" id="btn-back"><i class="ph-bold ph-skip-back"></i> Back</button>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" id="vid-progress"></div></div>
+                    <button class="btn-player primary" id="btn-next">Next Step <i class="ph-bold ph-skip-forward"></i></button>
+                </div>
+            </div>
+
+            <!-- Right Side: Micro-Detail Text -->
+            <div class="instruction-side">
+                <div class="step-counter" id="step-count-text">Step 1 of 5</div>
+                <h2 id="step-title">The Foundation: Power & Brain</h2>
+                <div id="step-desc-container">
+                    <!-- Dynamic text injected via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI HARDWARE HELPER CHATBOT -->
+    <div class="ai-chatbot-wrapper" id="ai-chat-window">
+        <div class="chat-header" onclick="toggleChat()">
+            <div class="ai-avatar"><i class="ph-bold ph-robot"></i></div>
+            <div class="ai-title">Hardware AI Helper <span>Online</span></div>
+            <i class="ph-bold ph-caret-up" id="chat-toggle-icon"></i>
+        </div>
+        <div class="chat-body" id="chat-messages">
+            <div class="msg ai-msg">
+                <p>Hello CSE Student! I am your embedded ECE tutor. Got doubts about GND, VCC, I2C, or Soldering? Ask me anything below!</p>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="ai-input" placeholder="Type a hardware doubt here..." onkeypress="handleChatEnter(event)">
+            <button onclick="sendChatMessage()"><i class="ph-fill ph-paper-plane-right"></i></button>
+        </div>
+    </div>
+
+    <script src="hardware.js"></script>
+</body>
+</html>
